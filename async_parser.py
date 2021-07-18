@@ -21,7 +21,6 @@ async def gather_data():
         soup = BeautifulSoup(await response.text(), 'lxml')
         pages_count = int(soup.find('div', class_='pagination').find('a', class_='last')\
             .get('href').replace('https://1news.az/lenta/?page=', ''))
-        # pages_count = 500 #custom pages count
 
         tasks = []
 
@@ -60,7 +59,6 @@ async def get_page_data(session, page):
                     'url': url
                     }
             )
-        #print(f'[INFO] Processed page № {page}')
 
 
 start_time = time.time()
